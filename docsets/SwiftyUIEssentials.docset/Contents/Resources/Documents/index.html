@@ -62,20 +62,23 @@
             
             <h1 id='swiftyuiessentials' class='heading'>SwiftyUIEssentials</h1>
 
-<p><a href="https://travis-ci.org/Josue%20Meza%20Pen%CC%83a/SwiftyUIEssentials"><img src="http://img.shields.io/travis/josuemeza/SwiftyUIEssentials.svg?style=flat" alt="CI Status"></a>
+<p><a href="https://travis-ci.org/josuemeza/SwiftyUIEssentials"><img src="http://img.shields.io/travis/josuemeza/SwiftyUIEssentials.svg?style=flat" alt="CI Status"></a>
 <a href="http://cocoapods.org/pods/SwiftyUIEssentials"><img src="https://img.shields.io/cocoapods/v/SwiftyUIEssentials.svg?style=flat" alt="Version"></a>
 <a href="http://cocoapods.org/pods/SwiftyUIEssentials"><img src="https://img.shields.io/cocoapods/l/SwiftyUIEssentials.svg?style=flat" alt="License"></a>
-<a href="http://cocoapods.org/pods/SwiftyUIEssentials"><img src="https://img.shields.io/cocoapods/p/SwiftyUIEssentials.svg?style=flat" alt="Platform"></a></p>
+<a href="http://cocoapods.org/pods/SwiftyUIEssentials"><img src="https://img.shields.io/cocoapods/p/SwiftyUIEssentials.svg?style=flat" alt="Platform"></a>
+<a href="http://clayallsopp.github.io/readme-score?url=https://github.com/josuemeza/swiftyuiessentials"><img src="http://readme-score-api.herokuapp.com/score.svg?url=https://github.com/josuemeza/swiftyuiessentials" alt="Readme Score"></a></p>
 
 <p>SwiftyUIEssentials is a collection of classes and extensions created by simplify the common actions on the iOS apps development.</p>
 
 <p>With this pod you can define shadows, borders and gradients on Interface Builder or programatically and some other actions extended on <code>UIColor</code>, <code>UISearchBar</code> and  <code>UIView</code></p>
 
-<p>All the functionalities are documented on the <a href="http://josuemeza.com/pods/SwiftyUIEssentials/">documentation page</a>.</p>
-<h2 id='example' class='heading'>Example</h2>
-
-<p>To run the example project, clone the repo, and run <code>pod install</code> from the Example directory first.</p>
+<p>All the functionalities are documented on the <a href="https://josuemeza.com/pods/SwiftyUIEssentials/">documentation page</a>.</p>
 <h2 id='requirements' class='heading'>Requirements</h2>
+
+<ul>
+<li>iOS 10.0+</li>
+<li>Swift 3.2+</li>
+</ul>
 <h2 id='installation' class='heading'>Installation</h2>
 
 <p>SwiftyUIEssentials is available through <a href="http://cocoapods.org">CocoaPods</a>. To install
@@ -83,7 +86,67 @@ it, simply add the following line to your Podfile:</p>
 <pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'SwiftyUIEssentials'</span>
 </code></pre>
 
-<p>Note: Cocoapods version 1.5 generates errors between Interface Builder and designable values. It is recommended to use Cocoapods 1.4.</p>
+<p><strong>Note:</strong> Cocoapods version 1.5 generates errors between Interface Builder and designable values. It is recommended to use Cocoapods 1.4.</p>
+<h2 id='usage' class='heading'>Usage</h2>
+<h3 id='seborderview' class='heading'>SEBorderView</h3>
+<h4 id='in-code' class='heading'>In-code</h4>
+
+<p>Import SwiftyUIEssentials and make a <code>SEBorderView</code>. You can use <code>border</code> method to set color, width and radius, or manually with each attribute.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">view</span> <span class="o">=</span> <span class="kt">SEBorderView</span><span class="p">()</span>
+<span class="c1">// With method</span>
+<span class="n">view</span><span class="o">.</span><span class="nf">border</span><span class="p">(</span><span class="o">.</span><span class="n">red</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nv">radius</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
+<span class="c1">// With attributes</span>
+<span class="n">view</span><span class="o">.</span><span class="n">borderColor</span> <span class="o">=</span> <span class="o">.</span><span class="n">red</span>
+<span class="n">view</span><span class="o">.</span><span class="n">borderWidth</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">view</span><span class="o">.</span><span class="n">borderRadius</span> <span class="o">=</span> <span class="mi">20</span>
+</code></pre>
+<h4 id='interface-builder' class='heading'>Interface builder</h4>
+
+<p>Create a <code>UIView</code> and set the custom class to <code>SEBorderView</code>. On Attribute inspector you can set all values.</p>
+
+<p><img src="https://josuemeza.com/pods/doc-assets/img/SEBorderView-sample.gif" alt="SEBorderView"></p>
+<h3 id='seshadowview' class='heading'>SEShadowView</h3>
+<h4 id='in-code' class='heading'>In-code</h4>
+
+<p>Import SwiftyUIEssentials and make a <code>SEShadowView</code>. You can use <code>shadow</code> method to set color, opacity, offset and radius, or manually with each attribute.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">view</span> <span class="o">=</span> <span class="kt">SEShadowView</span><span class="p">()</span>
+<span class="c1">// With method</span>
+<span class="n">view</span><span class="o">.</span><span class="nf">shadow</span><span class="p">(</span><span class="nv">color</span><span class="p">:</span> <span class="o">.</span><span class="n">red</span><span class="p">,</span> <span class="nv">opacity</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="nv">offset</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">(</span><span class="nv">width</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">5</span><span class="p">),</span> <span class="nv">radius</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
+<span class="c1">// With attributes</span>
+<span class="n">view</span><span class="o">.</span><span class="n">shadowColor</span> <span class="o">=</span> <span class="o">.</span><span class="n">red</span>
+<span class="n">view</span><span class="o">.</span><span class="n">shadowOpacity</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">view</span><span class="o">.</span><span class="n">shadowOffset</span> <span class="o">=</span> <span class="kt">CGSize</span><span class="p">(</span><span class="nv">width</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">view</span><span class="o">.</span><span class="n">shadowRadius</span> <span class="o">=</span> <span class="mi">20</span>
+</code></pre>
+<h4 id='interface-builder' class='heading'>Interface builder</h4>
+
+<p>Create a <code>UIView</code> and set the custom class to <code>SEShadowView</code>. On Attribute inspector you can set all values.</p>
+
+<p><img src="https://josuemeza.com/pods/doc-assets/img/SEShadowView-sample.gif" alt="SEShadowView"></p>
+<h3 id='segradientview' class='heading'>SEGradientView</h3>
+<h4 id='in-code' class='heading'>In-code</h4>
+
+<p>Import SwiftyUIEssentials and make a <code>SEGradientView</code>. You can use <code>gradient</code> method to set start and end color and start and end point, or manually with each attribute.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">view</span> <span class="o">=</span> <span class="kt">SEGradientView</span><span class="p">()</span>
+<span class="kt">CGPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="c1">// With method</span>
+<span class="n">view</span><span class="o">.</span><span class="nf">gradient</span><span class="p">(</span><span class="nv">startColor</span><span class="p">:</span> <span class="o">.</span><span class="n">yellow</span><span class="p">,</span> <span class="nv">endColor</span><span class="p">:</span> <span class="o">.</span><span class="n">red</span><span class="p">,</span> <span class="nv">startPoint</span><span class="p">:</span> 
+<span class="kt">CGPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">),</span> <span class="nv">endPoint</span><span class="p">:</span> 
+<span class="kt">CGPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="c1">// With attributes</span>
+<span class="n">view</span><span class="o">.</span><span class="n">gradientStartColor</span> <span class="o">=</span> <span class="o">.</span><span class="n">yellow</span>
+<span class="n">view</span><span class="o">.</span><span class="n">gradientEndColor</span> <span class="o">=</span> <span class="o">.</span><span class="n">red</span>
+<span class="n">view</span><span class="o">.</span><span class="n">gradientStartPoint</span> <span class="o">=</span> <span class="kt">GPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">view</span><span class="o">.</span><span class="n">gradientEndPoint</span> <span class="o">=</span> <span class="kt">CGPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">)</span>
+</code></pre>
+<h4 id='interface-builder' class='heading'>Interface builder</h4>
+
+<p>Create a <code>UIView</code> and set the custom class to <code>SEGradientView</code>. On Attribute inspector you can set all values.</p>
+
+<p><img src="https://josuemeza.com/pods/doc-assets/img/SEGradientView-sample.gif" alt="SEGradientView"></p>
+<h2 id='example' class='heading'>Example</h2>
+
+<p>To run the example project, clone the repo, and run <code>pod install</code> from the Example directory first.</p>
 <h2 id='author' class='heading'>Author</h2>
 
 <p>Josue Meza Peña, <a href="mailto:contacto@josuemeza.com">contacto@josuemeza.com</a></p>
@@ -94,7 +157,7 @@ it, simply add the following line to your Podfile:</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="http://josuemeza.com/" target="_blank" rel="external">Josue Meza Peña</a>. All rights reserved. (Last updated: 2018-08-16)</p>
+          <p>&copy; 2018 <a class="link" href="http://josuemeza.com/" target="_blank" rel="external">Josue Meza Peña</a>. All rights reserved. (Last updated: 2018-09-28)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
